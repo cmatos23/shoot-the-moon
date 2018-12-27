@@ -2,7 +2,14 @@
     "compilerOptions": {
         "experimentalDecorators": true,
         "baseUrl": ".",
-        "paths": {}
+        "paths": {
+            "c/player": [
+                "player/player.js"
+            ],
+            "c/scoreboard": [
+                "scoreboard/scoreboard.js"
+            ]
+        }
     },
     "include": [
         "**/*",

@@ -34,9 +34,6 @@
         <componentInstances>
             <componentName>home:assistant</componentName>
         </componentInstances>
-        <componentInstances>
-            <componentName>SP_Player</componentName>
-        </componentInstances>
         <mode>Replace</mode>
         <name>sidebar</name>
         <type>Region</type>

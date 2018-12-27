@@ -1,0 +1,84 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Contact",
+                "referenceId": "ContactRef1"
+            },
+            "FirstName": "Salvador",
+            "LastName": "Gaytan-Mojica",
+            "Players__r": {
+                "records": [
+                    {
+                        "attributes": {
+                            "type": "Player__c",
+                            "referenceId": "Player__cRef1"
+                        },
+                        "Score__c": 0,
+                        "Active__c": true
+                    }
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "type": "Contact",
+                "referenceId": "ContactRef2"
+            },
+            "FirstName": "Chris",
+            "LastName": "Matos",
+            "Players__r": {
+                "records": [
+                    {
+                        "attributes": {
+                            "type": "Player__c",
+                            "referenceId": "Player__cRef2"
+                        },
+                        "Score__c": 0,
+                        "Active__c": true
+                    }
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "type": "Contact",
+                "referenceId": "ContactRef3"
+            },
+            "FirstName": "Matt",
+            "LastName": "Kachlik",
+            "Players__r": {
+                "records": [
+                    {
+                        "attributes": {
+                            "type": "Player__c",
+                            "referenceId": "Player__cRef3"
+                        },
+                        "Score__c": 0,
+                        "Active__c": true
+                    }
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "type": "Contact",
+                "referenceId": "ContactRef4"
+            },
+            "FirstName": "Carlos",
+            "LastName": "Del Moral",
+            "Players__r": {
+                "records": [
+                    {
+                        "attributes": {
+                            "type": "Player__c",
+                            "referenceId": "Player__cRef4"
+                        },
+                        "Score__c": 0,
+                        "Active__c": true
+                    }
+                ]
+            }
+        }
+    ]
+}

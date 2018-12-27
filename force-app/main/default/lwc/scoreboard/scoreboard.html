@@ -1,0 +1,6 @@
+<template>
+        <lightning-button label="Save"> </lightning-button>
+        <template for:each={players} for:item="player">
+            <c-player key={player.Id} player={player}></c-player>
+        </template>
+    </template>

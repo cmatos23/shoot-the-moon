@@ -1,0 +1,18 @@
+[
+    {
+        "sobject": "Contact",
+        "saveRefs": true,
+        "resolveRefs": true,
+        "files": [
+            "config/data/stm-Contact-Player__c.json"
+        ]
+    },
+    {
+        "sobject": "Player__c",
+        "saveRefs": true,
+        "resolveRefs": true,
+        "files": [
+            "config/data/stm-Contact-Player__c.json"
+        ]
+    }
+]

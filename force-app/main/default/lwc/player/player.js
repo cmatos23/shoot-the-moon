@@ -1,14 +1,12 @@
-import { LightningElement, api} from 'lwc';
+import { LightningElement, api, track} from 'lwc';
 
 export default class player extends LightningElement {
     @api player;
 
-   @api score = 0;
-
-    handleUpClick(){ 
-        this.player.Score__c++;
+    handleUpClick(){
+        this.dispatchEvent(new CustomEvent('scoreup', {detail : this.player.Id}));
     }
     handleDownClick(){
-        this.player.Score__c--;
+        this.dispatchEvent(new CustomEvent('scoredown', {detail : this.player.Id}));
     }
 }

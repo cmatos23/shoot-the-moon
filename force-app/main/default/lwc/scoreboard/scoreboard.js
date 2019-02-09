@@ -1,5 +1,7 @@
 import { LightningElement, wire, track } from 'lwc';
 import getPlayers from '@salesforce/apex/STM_ScoreboardController.getPlayers';
+import savePlayers from '@salesforce/apex/STM_ScoreboardController.savePlayers';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 export default class scoreboard extends LightningElement {
     wiredPlayers;
@@ -25,5 +27,41 @@ export default class scoreboard extends LightningElement {
     /** Updates the players */
     setPlayers(players) {
         this.players = players.slice();
+    }
+
+    handleScoreUp(event){
+        let player = this.players.find(player => event.detail === player.Id);
+        this.findAndUpdatePlayerScore(player.Id, player.Score__c + 1);
+    }
+    findAndUpdatePlayerScore(playerId, score){
+        this.players = this.players.map(function(aPlayer) {
+            if(aPlayer.Id == playerId){
+                let clonedPlayer = Object.assign({}, aPlayer);
+                clonedPlayer.Score__c = score;
+                return clonedPlayer;
+            }
+            return aPlayer;
+        });
+    }
+    handleScoreDown(event){
+        let player = this.players.find(player => event.detail === player.Id);
+        this.findAndUpdatePlayerScore(player.Id, player.Score__c - 1);
+    }
+    handleSaveClick(){
+        savePlayers({players:this.players})
+            .then(()=>{
+                this.dispatchEvent(new ShowToastEvent({
+                    title: 'Success',
+                    message:'Successfully saved!',
+                    variant:'success'
+                }));
+            })
+            .catch(error=>{
+                this.dispatchEvent(new ShowToastEvent({
+                    title: 'Error',
+                    message:'Failed to save!',
+                    variant:'error'
+                }));
+            });
     }
 }

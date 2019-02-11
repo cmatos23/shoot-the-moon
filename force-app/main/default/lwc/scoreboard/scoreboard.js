@@ -30,21 +30,11 @@ export default class scoreboard extends LightningElement {
     }
 
     handleScoreUp(event){
-        let player = this.players.find(player => event.detail === player.Id);
+        let player = this.players.find(aPlayer => event.detail === aPlayer.Id);
         this.findAndUpdatePlayerScore(player.Id, player.Score__c + 1);
     }
-    findAndUpdatePlayerScore(playerId, score){
-        this.players = this.players.map(function(aPlayer) {
-            if(aPlayer.Id == playerId){
-                let clonedPlayer = Object.assign({}, aPlayer);
-                clonedPlayer.Score__c = score;
-                return clonedPlayer;
-            }
-            return aPlayer;
-        });
-    }
     handleScoreDown(event){
-        let player = this.players.find(player => event.detail === player.Id);
+        let player = this.players.find(aPlayer => event.detail === aPlayer.Id);
         this.findAndUpdatePlayerScore(player.Id, player.Score__c - 1);
     }
     handleSaveClick(){
@@ -55,13 +45,25 @@ export default class scoreboard extends LightningElement {
                     message:'Successfully saved!',
                     variant:'success'
                 }));
+                this.template.querySelectorAll('c-player')
+                    .forEach((cmp)=>cmp.clean());
             })
             .catch(error=>{
                 this.dispatchEvent(new ShowToastEvent({
                     title: 'Error',
-                    message:'Failed to save!',
+                    message:'Failed to save: ' + JSON.stringify(error),
                     variant:'error'
                 }));
             });
+    }
+    findAndUpdatePlayerScore(playerId, score){
+        this.players = this.players.map(function(aPlayer) {
+            if(aPlayer.Id === playerId){
+                let clonedPlayer = Object.assign({}, aPlayer);
+                clonedPlayer.Score__c = score;
+                return clonedPlayer;
+            }
+            return aPlayer;
+        });
     }
 }

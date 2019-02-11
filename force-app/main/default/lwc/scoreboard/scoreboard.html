@@ -1,6 +1,10 @@
 <template>
-    <lightning-button label="Save" onclick={handleSaveClick}> </lightning-button>
-    <template for:each={players} for:item="player">
-        <c-player key={player.Id} player={player} onscoreup={handleScoreUp} onscoredown={handleScoreDown}></c-player>
-    </template>
+    <lightning-button label="Save" onclick={handleSaveClick} class="slds-m-bottom_small"> </lightning-button>
+    <lightning-layout multiple-rows>
+        <template for:each={players} for:item="player">
+            <lightning-layout-item key={player.Id} size="12" large-device-size="4" medium-device-size="6">
+                <c-player player={player} onscoreup={handleScoreUp} onscoredown={handleScoreDown}></c-player>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
 </template>

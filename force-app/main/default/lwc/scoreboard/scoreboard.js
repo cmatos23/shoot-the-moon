@@ -56,6 +56,14 @@ export default class scoreboard extends LightningElement {
                 }));
             });
     }
+    handleResetClick(){
+        this.players = this.players.map(function(aPlayer) {
+            let clonedPlayer = Object.assign({}, aPlayer);
+            clonedPlayer.Score__c = 0;
+            return clonedPlayer;
+
+        });
+    }
     findAndUpdatePlayerScore(playerId, score){
         this.players = this.players.map(function(aPlayer) {
             if(aPlayer.Id === playerId){

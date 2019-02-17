@@ -1,8 +1,14 @@
 <template>
-    <lightning-button label="Save" onclick={handleSaveClick} class="slds-m-bottom_small"> </lightning-button>
+
+    <div class="slds-m-bottom_small">
+        <lightning-button-group>
+            <lightning-button label="Save" onclick={handleSaveClick}  icon-name="utility:save"> </lightning-button>
+            <lightning-button label="Reset" onclick={handleResetClick}> </lightning-button>
+        </lightning-button-group>
+    </div>
     <lightning-layout multiple-rows>
         <template for:each={players} for:item="player">
-            <lightning-layout-item key={player.Id} size="12" large-device-size="4" medium-device-size="6">
+            <lightning-layout-item class="slds-p-right_small slds-p-bottom_small" key={player.Id} size="12" large-device-size="4" medium-device-size="6">
                 <c-player player={player} onscoreup={handleScoreUp} onscoredown={handleScoreDown}></c-player>
             </lightning-layout-item>
         </template>

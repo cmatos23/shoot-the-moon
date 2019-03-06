@@ -6,3 +6,5 @@
 .settings
 .sfdx/
 .vscode/
+IlluminatedCloud
+*.iml
